@@ -7,7 +7,7 @@ import pwd
 import psi
 import psi.process
 import telebot
-bot = telebot.TeleBot("bottoken")
+bot = telebot.TeleBot("") #Telegram token
  
 LED_COUNT	= 1	 # Number of LED pixels.
 LED_PIN		= 18	  # GPIO pin connected to the pixels (18 uses PWM!).
@@ -192,8 +192,56 @@ def driveone(strip, wait_ms=3):
 			strip.setPixelColor(i, Color(z,0,0))
 			strip.show()
 			time.sleep(wait_ms/1000)
-
-
+def gameserver(strip,wait_ms=1):
+	for i in range(strip.numPixels()):
+		for z in range(255):
+			strip.setPixelColor(i, Color(z,0,0))
+			strip.show()
+			time.sleep(wait_ms/1000)
+		for z in reversed(range(255)):
+			strip.setPixelColor(i, Color(z,0,0))
+			strip.show()
+			time.sleep(wait_ms/1000)
+		for z in range(255):
+			strip.etpixelColor(i, Color(0,z,0))
+			strip.show()
+			time.sleep(wait_ms/1000)
+		for z in reversed(range(255)):
+			strip.setPixelColor(i, Color(0,z,0))
+			strip.show()
+			time.sleep(wait_ms/1000)
+		for z in range(255):
+			strip.setPixelColor(i, Color(z,0,0))
+			strip.show()
+			time.sleep(wait_ms/1000)
+		for z in reversed(range(255)):
+			strip.setPixelColor(i, Color(z,0,0))
+			strip.show()
+			time.sleep(wait_ms/1000)
+		for z in range(255):
+			strip.etpixelColor(i, Color(0,z,0))
+			strip.show()
+			time.sleep(wait_ms/1000)
+		for z in reversed(range(255)):
+			strip.setPixelColor(i, Color(0,z,0))
+			strip.show()
+			time.sleep(wait_ms/1000)
+		for z in range(255):
+			strip.setPixelColor(i, Color(z,0,0))
+			strip.show()
+			time.sleep(wait_ms/1000)
+		for z in reversed(range(255)):
+			strip.setPixelColor(i, Color(z,0,0))
+			strip.show()
+			time.sleep(wait_ms/1000)
+		for z in range(255):
+			strip.etpixelColor(i, Color(0,z,0))
+			strip.show()
+			time.sleep(wait_ms/1000)
+		for z in reversed(range(255)):
+			strip.setPixelColor(i, Color(0,z,0))
+			strip.show()
+			time.sleep(wait_ms/1000)
 def ok(strip,wait_ms=1):
 	for i in range(strip.numPixels()):
 		for z in range(155):
@@ -219,13 +267,19 @@ if __name__ == '__main__':
 		wipe(strip)
 		time.sleep(3)
 		while True:
-
+		
+		
+			
 			if os.path.isfile("/drive/checkfile") is True:
 				re = re+1
 				drive = "ok"
 			if os.path.isfile("/driveone/checkfile") is True:
 				re = re+1
 				driveone = "ok"
+			#myProcessName="gameserver.sh" 
+			#for p in psi.process.ProcessTable().values():
+			#	if myProcessName in p.command:
+			#		gameserver()
 			myProcessName="besed.py" 
 			for p in psi.process.ProcessTable().values():
 				if myProcessName in p.command:
