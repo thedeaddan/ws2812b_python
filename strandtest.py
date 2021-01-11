@@ -7,7 +7,7 @@ import pwd
 import psi
 import psi.process
 import telebot
-bot = telebot.TeleBot("telegram bot token here")
+bot = telebot.TeleBot("bottoken")
  
 LED_COUNT	= 1	 # Number of LED pixels.
 LED_PIN		= 18	  # GPIO pin connected to the pixels (18 uses PWM!).
@@ -247,24 +247,22 @@ if __name__ == '__main__':
 			if vkbot != "ok":
 				vkbot(strip)
 				bot.send_message(895942747,"Не работает вк бот")
-				time.sleep(300)
 			if telegram != "ok":
 				telegram(strip)
 				bot.send_message(895942747,"Не работает TG бот")
-				time.sleep(300)
 			if discord != "ok":
 				discord(strip)
 				bot.send_message(895942747,"Не работает дискорд бот")
-				time.sleep(300)
 			if drive != "ok":
 				drive(strip)
 				bot.send_message(895942747,"Не работает запасной диск (/drive)")
-				time.sleep(300)
 			if driveone != "ok":
 				drive(strip)
 				bot.send_message(895942747,"Не работает главный диск (/driveone)")
-				time.sleep(300)
-
+			if re == 0:
+				bot.send_message(895942747,"Ничего не запустилось, перезапускаю сервер через 5 минут")
+				time.sleep(500)
+				os.system("sudo reboot")
 			if re == 5:
 				ok(strip)
 			re = 0
